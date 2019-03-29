@@ -2805,6 +2805,11 @@ video.responsive-video {
   position: relative;
   top: 5px;
 }
+.table-spacing { 
+  border-collapse:separate; 
+  border-spacing:0 15px; 
+} 
+
 
 .breadcrumb:before {
   content: '\E5CC';
@@ -3026,7 +3031,9 @@ th{
   font-weight: normal;
   color:#bdbdbd;
 }
-
+td{
+  color: #9e9e9e;
+}
 td, th {
   padding: 15px 5px;
   display: table-cell;

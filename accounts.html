@@ -18,6 +18,22 @@
     <script type="text/javascript" src="./dust-full.js"></script>
     <script type="text/javascript" src="./dust-helpers.js"></script>
     <!-- <link rel="stylesheet" href="./style.css"> -->
+    <script type="text/javascript">
+        const httpLink = "https://gorest.co.in/public-api/users?_format=json&access-token=UzOZ1EKdyw4G36vApgwmKWPr9M_bnFn08qkB"
+        function renderTemplates(e){
+            $.getJSON(httpLink, function(data){
+              var templContent = document.getElementById('itemTemplate').innerHTML;
+              var dataTemplate = dust.compile(templContent, "myTmpl");
+
+              dust.loadSource(dataTemplate);
+              dust.render("myTmpl", data, function (err, res) {
+                document.getElementById('container').innerHTML = res;
+              });
+            });
+        }
+
+        window.addEventListener("load", renderTemplates);
+    </script>
 </head>
 
 <body class="grey lighten-4">
@@ -59,28 +75,29 @@
     </nav>
 
 
-
-    <div id="test1" class="col s12"></div>
-    <div id="accounts" class="col s12">
-        <div class="container">
-            <table>
+    <script type="text/x-template" id="itemTemplate">
+       
+        
+        <table class="table-spacing">
                 <thead>
                   <tr>
                       <th></th>
-                      <th>Account name</th>
-                      <th>Type</th>
-                      <th>Account number</th>
-                      <th>CCY</th>
-                      <th>Balance</th>
-                      <th>Last Transfer</th>
-                      <th>Trustworthiness</th>
+                      <th>User's Name</th>
+                      <th>Gender</th>
+                      <th>Date of birth</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Website</th>
+                      <th>Address</th>
                       <th>Status</th>
                       <th></th>
                   </tr>
                 </thead>
         
                 <tbody class="white">
+                {#result}
                   <tr>
+                      
                     <td>
                             <label>
                               <input class="with-gap radios" name="group3" type="radio"/>
@@ -88,26 +105,35 @@
                             </label>
                           
                         </td>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-                    <td>$0.87</td>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-                    <td>$0.87</td>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
+                    <td>{name}</td>
+                    <td>{gender}</td>
+                    <td>{dob}</td>
+                    <td>{email}</td>
+                    <td>{phone}</td>
+                    <td>{website}</td>
+                    <td>{address}</td>
+                    <td>{status}</td>
                     <td><i class="material-icons table-icons">more_horiz</i></td>
                   </tr>
-                 
+                {/result}
                 </tbody>
               </table>
-              <div class="load-more">
-                    <button class="btn waves-effect waves-light light-blue darken-1" type="submit" name="action">Load more
-                           
-                          </button>
-              <!-- <a class="waves-effect waves-light light-blue darken-1 btn">Load more</a> -->
-            </div>
-        </div>
+           
+      </script>
+      
+      <!-- <div id="container"></div> -->
+    <div id="test1" class="col s12"></div>
+    <div id="accounts" class="col s12">
+            <div class="container">
+                    <div id="container"></div>
+                      <div class="load-more">
+                            <button class="btn waves-effect waves-light light-blue darken-1" type="submit" name="action">Load more
+                                   
+                                  </button>
+                      <!-- <a class="waves-effect waves-light light-blue darken-1 btn">Load more</a> -->
+                    </div>
+                </div>
+        
     </div>
     <div id="test3" class="col s12"></div>
     <div id="test4" class="col s12"></div>
@@ -141,7 +167,11 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+        
+           
+    
+            <!-- This is the container where the templates will be instantiated -->
+            
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="" async defer></script>
     <script>
