@@ -2807,7 +2807,7 @@ video.responsive-video {
 }
 .table-spacing { 
   border-collapse:separate; 
-  border-spacing:0 15px; 
+  border-spacing:0 8px; 
 } 
 
 
@@ -3030,6 +3030,7 @@ tr {
 th{
   font-weight: normal;
   color:#bdbdbd;
+ 
 }
 td{
   color: #9e9e9e;
