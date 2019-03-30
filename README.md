@@ -5,3 +5,5 @@ Simple UI using test online api in js
 ### Set Up
 
 Using vscode open accounts.html with live server
+
+The sample page can be found [here](https://ayeeta.github.io/sample-UI-test/accounts.html)
