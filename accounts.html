@@ -12,26 +12,24 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./materialize.css">
+    <link rel="stylesheet" href="./res/css/materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script type="text/javascript" src="./jquery.js"></script>
-    <script type="text/javascript" src="./dust-full.js"></script>
-    <script type="text/javascript" src="./dust-helpers.js"></script>
+    <script type="text/javascript" src="./res/js/jquery.js"></script>
+    <script type="text/javascript" src="./res/js/dust-full.js"></script>
+    <script type="text/javascript" src="./res/js/dust-helpers.js"></script>
     <!-- <link rel="stylesheet" href="./style.css"> -->
     <script type="text/javascript">
-        const httpLink = "https://gorest.co.in/public-api/users?_format=json&access-token=UzOZ1EKdyw4G36vApgwmKWPr9M_bnFn08qkB"
+        const httpLink = "https://gorest.co.in/public-api/users?_format=json&access-token=J0cA469FKd3Stcfl4WDLWwgFEEuHnFHCbi4z"
         function renderTemplates(e){
             $.getJSON(httpLink, function(data){
               var templContent = document.getElementById('itemTemplate').innerHTML;
               var dataTemplate = dust.compile(templContent, "myTmpl");
-
               dust.loadSource(dataTemplate);
               dust.render("myTmpl", data, function (err, res) {
                 document.getElementById('container').innerHTML = res;
               });
             });
         }
-
         window.addEventListener("load", renderTemplates);
     </script>
 </head>
@@ -87,8 +85,8 @@
                       <th>Date of birth</th>
                       <th>Email</th>
                       <th>Phone</th>
-                      <th>Website</th>
-                      <th>Address</th>
+                      <!-- <th>Website</th> -->
+                      <!-- <th>Address</th> -->
                       <th>Status</th>
                       <th></th>
                   </tr>
@@ -112,8 +110,8 @@
                     <td>{dob}</td>
                     <td>{email}</td>
                     <td>{phone}</td>
-                    <td>{website}</td>
-                    <td>{address}</td>
+                    <!-- <td>{website}</td> -->
+                    <!-- <td>{address}</td> -->
                     <td>{status}</td>
                     <td><i class="material-icons table-icons">more_horiz</i></td>
                   </tr>
@@ -126,7 +124,7 @@
       <!-- <div id="container"></div> -->
     <div id="test1" class="col s12"></div>
     <div id="accounts" class="col s12">
-            <div class="">
+            <div class="container">
                     <div id="container"></div>
                       <div class="load-more">
                             <button class="btn waves-effect waves-light light-blue darken-1" type="submit" name="action">Load more
